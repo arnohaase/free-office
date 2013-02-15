@@ -2,9 +2,8 @@ package de.arnohaase.freeoffice.calc.backend;
 
 
 public interface CellModifyCommand {
-    /**
-     * @return a memento that allows undoing
-     */
-    Object doIt(MutableCalcBackend backend);
-    void undo(MutableCalcBackend backend, Object memento);
+    //TODO should commands contain their logic, operating on a 'mutable backend' interface,
+    // or should every backend know all commands and implement them specifically?
+    
+    CellModifyCommand createUndoCommand(CalcBackend backend);
 }
